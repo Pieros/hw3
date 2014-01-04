@@ -1,0 +1,112 @@
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (61.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (17.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (2.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreatePosts (20140103124944)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20140103124944')[0m
+  [1m[35m (29.0ms)[0m  commit transaction
+Migrating to CreateComments (20140103164223)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "commenter" varchar(255), "body" text, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20140103164223')
+  [1m[36m (22.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-01-04 13:13:55 -0800
+Connecting to database specified by database.yml
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+  Rendered posts/index.html.haml within layouts/application (11.8ms)
+Compiled comments.css  (14ms)  (pid 3114)
+Compiled posts.css  (3ms)  (pid 3114)
+Compiled welcome.css  (2ms)  (pid 3114)
+Compiled application.css  (77ms)  (pid 3114)
+Compiled jquery.js  (3ms)  (pid 3114)
+Compiled jquery_ujs.js  (0ms)  (pid 3114)
+Compiled comments.js  (386ms)  (pid 3114)
+Compiled posts.js  (224ms)  (pid 3114)
+Compiled welcome.js  (194ms)  (pid 3114)
+Compiled application.js  (900ms)  (pid 3114)
+Completed 200 OK in 1190ms (Views: 1115.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-04 13:13:57 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (30ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-04 13:13:57 -0800
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-01-04 13:13:57 -0800
+Served asset /welcome.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-01-04 13:13:57 -0800
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-01-04 13:13:57 -0800
+Served asset /comments.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-01-04 13:13:57 -0800
+Served asset /comments.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-01-04 13:13:57 -0800
+Served asset /posts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-01-04 13:13:57 -0800
+Served asset /welcome.js - 304 Not Modified (1ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-04 13:14:01 -0800
+Processing by PostsController#new as HTML
+Filter chain halted as #<Proc:0xb16ea58@/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.14/lib/action_controller/metal/http_authentication.rb:112> rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-04 13:14:07 -0800
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.haml (66.3ms)
+  Rendered posts/new.html.haml within layouts/application (112.7ms)
+Completed 200 OK in 171ms (Views: 127.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-04 13:14:08 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (43ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-04 13:14:08 -0800
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-01-04 13:14:08 -0800
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-01-04 13:14:08 -0800
+Served asset /posts.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-01-04 13:14:08 -0800
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-01-04 13:14:08 -0800
+Served asset /comments.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-01-04 13:14:08 -0800
+Served asset /posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-01-04 13:14:08 -0800
+Served asset /welcome.js - 304 Not Modified (0ms)
